@@ -1,6 +1,9 @@
-'''containts Node and Dialogue_Tree classes for traversing NPC dialogue'''
+'''
+containts Node and Dialogue_Tree classes for traversing NPC dialogue, represented as a binary tree
+'''
 import time
 
+# Node represents a single dialogue node, with left and right child nodes
 class Node:
     def __init__(self, value, pause, left_key, right_key, checkpoint, action, path):
         # the dialogue
@@ -21,6 +24,7 @@ class Node:
         # additional action to be executed with dialogue - defaults None
         self.action = action
 
+# Dialogue_Tree represents a binary tree of dialogue nodes, with methods for adding, removing, and traversing the tree
 class Dialogue_Tree:
     def __init__(self, questline=None):
         self.head = None
@@ -83,9 +87,8 @@ class Dialogue_Tree:
         self.update_paths(node.left, current_path + '0')
         self.update_paths(node.right, current_path + '1')
 
+    # Helper function to check checkpoint conditions and remove nodes when checkpoint met
     def check_and_remove(self, node):
-        """Helper function to check checkpoint conditions and remove nodes when checkpoint met"""
-        
         checkpoint_passed = self.questline.check_and_progress()
 
         if checkpoint_passed:

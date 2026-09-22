@@ -5,6 +5,7 @@ import characters.character_class as character_class
 import game_objects.rooms as rooms
 import time
 
+# create the player object and place them in the foyer
 player = player_class.Player("Name", rooms.foyer)
 
 # prompt user for their name and confirm    

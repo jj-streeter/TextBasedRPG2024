@@ -1,3 +1,7 @@
+'''
+Class Player is used to create the player character for the game
+'''
+
 class Player:
     def __init__(self, name, location):
         self.name = name

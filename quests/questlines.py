@@ -1,5 +1,6 @@
 '''Contains QuestLine and QuestNode classes for character quests'''
 
+# QuestNode represents a single node in a quest line, with conditions and actions
 class QuestNode:
     def __init__(self, conditions, actions):
         self.conditions = conditions
@@ -17,10 +18,12 @@ class QuestNode:
         for action in self.actions:
             action()
 
+# QuestLine represents a sequence of quest nodes
 class QuestLine:
     def __init__(self):
         self.current_node = None
 
+    # add a new quest node to the end of the list
     def add_checkpoint(self, conditions, actions):
         new_node = QuestNode(conditions, actions)
 
@@ -33,6 +36,7 @@ class QuestLine:
                 current_node = current_node.next
             current_node.next = new_node
 
+    # check if the current node's conditions are met and progress to the next node if so
     def check_and_progress(self):
         if self.current_node is None:
             #print("No quests active.")

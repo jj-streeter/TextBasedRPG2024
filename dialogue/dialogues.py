@@ -1,4 +1,4 @@
-'''holds all initializations of character dialogue trees'''
+'''Contains all initializations of character dialogue trees'''
 
 import dialogue.dialogue_tree as dialogue_tree
 from game_objects import characters, rooms, items

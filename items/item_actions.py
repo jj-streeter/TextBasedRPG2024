@@ -1,8 +1,10 @@
 '''contains functions associated with using items'''
+
 import items.item_descriptions as item_descriptions
 import rooms.room_descriptions as room_descriptions
 import time
 
+# Load the map of the game
 def load_map():
     from game_objects.rooms import secret_room
     if not secret_room.locked:
@@ -13,16 +15,19 @@ def load_map():
             map_lines = file.readlines()
     return map_lines
 
+# Display the map of the game
 def print_map():
     map_lines = load_map()
     for line in map_lines:
         print(line)
 
+# Use the lamp (for unlocking the secret room)
 def use_lamp():
     print("You fiddle with the lamp a bit until you notice a large portrait on the west side of the room sliding to reveal a hidden door.")
     from game_objects.rooms import secret_room
     secret_room.unlock()
 
+# Read the old tome (requires decoder in inventory)
 def read_tome():
     from game_objects.characters import player
     from game_objects.items import decoder
@@ -31,6 +36,7 @@ def read_tome():
     else:
         print("You open the book and try to decipher the script, but it means absolutely nothing to you.")
 
+# Toss the coin (for tossing into the fountain)
 def toss_coin():
     from game_objects.characters import player
     from game_objects.items import coin
@@ -40,6 +46,7 @@ def toss_coin():
     else:
         print("You flip the coin into the air, and it lands back in your palm, heads up.")
 
+# Fix the broken clock by removing the wad of gum
 def fix_clock():
     from game_objects.items import broken_clock
     from items.item_descriptions import fixed_clock
@@ -52,6 +59,7 @@ def fix_clock():
     broken_clock.name = "Grandfather Clock"
     broken_clock.description = fixed_clock
 
+# Open the box and add it to player's inventory (requires stool to reach)
 def open_box():
     from game_objects.items import stool, lock_box
     from game_objects.characters import player
@@ -77,8 +85,9 @@ def open_box():
         mail_room.long_description = room_descriptions.mail_room_2
 
     else:
-        print("You reach for the box, but it's too high up.")
+        print("You reach for the box, but it's too high up.") # Player doesn't have the stool to reach it
 
+# Place the stool in the current room so the player can reach high places
 def place_stool():
     from game_objects.characters import player
     from game_objects.items import stool

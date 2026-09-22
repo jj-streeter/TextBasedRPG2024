@@ -1,4 +1,5 @@
-'''contains initializations for all questlines'''
+'''contains initializations for questlines'''
+
 import quests.questlines as questlines
 import quests.quest_conditions as quest_conditions
 import quests.quest_actions as quest_actions

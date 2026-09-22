@@ -1,3 +1,7 @@
+'''
+Holds actions that are performed by NPC's during dialogue
+'''
+
 def handshake(character_name):
     print("*" + character_name + " shakes your hand*")
 

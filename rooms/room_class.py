@@ -1,6 +1,13 @@
+'''
+Class Room is used to create room objects for the game. 
+Each room has a name, a main description, a long description, 
+a dictionary of connections to other rooms, a list of characters 
+in the room, a list of items in the room, and flags for whether 
+the room has been visited, looked at, or is locked.
+'''
+
 import time
 
-# a Room class to make different room objects where the player can move to and from
 class Room:
     def __init__(self, name, main_description, long_description):
         self.name = name
@@ -13,7 +20,7 @@ class Room:
         self.looked_at = False
         self.locked = False
         
-    # connects the room to another by a certain cardinal direction
+    # connect the room to another by a certain cardinal direction
     def connect(self, direction, room):
         self.connections[direction] = room
 
@@ -28,7 +35,7 @@ class Room:
         
         room.connections[opposite_direction] = self
         
-    # prints a list of viable moves in the room
+    # print a list of viable moves in the room
     def print_viable_moves(self):
         directions = []
 
@@ -45,7 +52,7 @@ class Room:
             else:
                 print(directions[i] + ".")
 
-    # prints a list of all characters in the room
+    # print a list of all characters in the room
     def print_all_characters(self):
         print("In the room you see:", end = " ")
 
@@ -58,6 +65,7 @@ class Room:
             else:
                 print(str(self.characters[i].name) + ".")
 
+    # print a list of all items in the room
     def print_items_in_room(self):
         self.looked_at = True
         
@@ -73,6 +81,7 @@ class Room:
                 else:
                     print(str(self.items[i].name) + ".")
             time.sleep(1)
-    
+
+    # unlock the room
     def unlock(self):
         self.locked = False

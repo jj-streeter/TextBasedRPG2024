@@ -1,6 +1,10 @@
+'''
+Class Character is used to create characters for the game
+'''
+
 import time
 import dialogue.dialogue_tree as dialogue_tree
-# Character class to make NPC's
+
 class Character:
     def __init__(self, name, description, location, dialogue):
         self.name = name
@@ -23,6 +27,7 @@ class Character:
             time.sleep(1)
             self.dialogue.traverse_dialogue(self.dialogue.head, self.name)
 
+    # Print character description
     def print_character_description(self):
         print("You take a close look at " + self.name)
         print(self.description)

@@ -1,4 +1,6 @@
-''' stores the longer descriptions for each room, used when player looks at a room'''
+'''
+stores the longer descriptions for each room, used when player looks at a room
+'''
 
 foyer = []
 hallway = []

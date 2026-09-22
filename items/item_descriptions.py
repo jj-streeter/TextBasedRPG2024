@@ -1,3 +1,7 @@
+'''
+Contains descriptions for all game items.
+'''
+
 chandelier = ["An ornate fixture of silver, gilded wood, and bronze hangs from the high cieling emitting a soft glow throughout the foyer.",
               "You think it must weigh at least 200 pounds."]
 
